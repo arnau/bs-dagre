@@ -72,7 +72,8 @@ let setGraph = (graph: t, attrs: Attrs.t) =>
 
 [@bs.send] external graph: t => Js.t('a) = "graph";
 [@bs.send] external setNode: (t, Node.t, Node.attrs) => unit = "setNode";
-[@bs.send] external node: (t, Node.t) => option(Node.attrs) = "node";
+[@bs.send] [@bs.return nullable]
+external node: (t, Node.t) => option(Node.attrs) = "node";
 
 [@bs.send] external isDirected: t => bool = "isDirected";
 [@bs.send] external isMultigraph: t => bool = "isMultigraph";
@@ -119,9 +120,10 @@ external nodeEdges:
   (t, Node.t, ~filter: Node.t=?, unit) => option(array(Edge.t)) =
   "nodeEdges";
 
-[@bs.send] external parent: (t, Node.t) => option(Node.t) = "parent";
+[@bs.send] [@bs.return nullable]
+external parent: (t, Node.t) => option(Node.t) = "parent";
 [@bs.send] external setParent: (t, Node.t, Node.t) => unit = "setParent";
-[@bs.send]
+[@bs.send] [@bs.return nullable]
 external childrenRaw: (t, Node.t) => option(array(Node.t)) = "children";
 
 [@bs.send] external hasEdge: (t, Edge.t) => bool = "hasEdge";
@@ -130,7 +132,8 @@ external childrenRaw: (t, Node.t) => option(array(Node.t)) = "children";
 
 [@bs.send] external setEdge: (t, Edge.t) => unit = "setEdge";
 
-[@bs.send] external edge: (t, Edge.t) => option(Edge.attrs) = "edge";
+[@bs.send] [@bs.return nullable]
+external edge: (t, Edge.t) => option(Edge.attrs) = "edge";
 
 [@bs.send] external removeEdge: (t, Edge.t) => unit = "removeEdge";
 

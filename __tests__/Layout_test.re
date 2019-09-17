@@ -15,32 +15,32 @@ describe("Layout", () => {
 
     Graph.setDefaultEdgeLabel(g, () => {"minlen": 3});
 
-    Graph.setNode(
+    Graph.setNodeWith(
       g,
       "kspacey",
       Node.attrs(~label="Kevin Spacey", ~width=144, ~height=100, ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       g,
       "swilliams",
       Node.attrs(~label="Saul Williams", ~width=160, ~height=100, ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       g,
       "bpitt",
       Node.attrs(~label="Brad Pitt", ~width=108, ~height=100, ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       g,
       "hford",
       Node.attrs(~label="Harrison Ford", ~width=168, ~height=100, ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       g,
       "lwilson",
       Node.attrs(~label="Luke Wilson", ~width=144, ~height=100, ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       g,
       "kbacon",
       Node.attrs(~label="Kevin Bacon", ~width=121, ~height=100, ()),

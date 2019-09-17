@@ -31,7 +31,7 @@ describe("Graph", () => {
   test("A graph with a node", () => {
     let graph = Graph.make();
     let attrs = Node.attrs(~width=20, ~height=20, ~label="a", ());
-    Graph.setNode(graph, "a", attrs);
+    Graph.setNodeWith(graph, "a", attrs);
 
     expect(Graph.node(graph, "a")) |> toEqual(Some(attrs));
   });
@@ -70,12 +70,12 @@ describe("Graph", () => {
 
   test("A graph with two nodes", () => {
     let graph = Graph.make();
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="first", ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "b",
       Node.attrs(~width=20, ~height=20, ~label="second", ()),
@@ -98,12 +98,12 @@ describe("Graph", () => {
 
   test("Returns the list of node ids", () => {
     let graph = Graph.make();
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="first", ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "b",
       Node.attrs(~width=20, ~height=20, ~label="second", ()),
@@ -159,7 +159,7 @@ describe("Graph", () => {
 
   test("Checks if a node exists", () => {
     let graph = Graph.make();
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="x", ()),
@@ -170,7 +170,7 @@ describe("Graph", () => {
 
   test("Removes a node", () => {
     let graph = Graph.make();
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="second", ()),
@@ -303,12 +303,12 @@ describe("Graph", () => {
 
   test("Returns the parent of a node", () => {
     let graph = Graph.make(~compound=true, ());
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="first", ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "b",
       Node.attrs(~width=20, ~height=20, ~label="second", ()),
@@ -320,12 +320,12 @@ describe("Graph", () => {
 
   test("Returns an empty list for non-compound graphs", () => {
     let graph = Graph.make();
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="first", ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "b",
       Node.attrs(~width=20, ~height=20, ~label="second", ()),
@@ -336,12 +336,12 @@ describe("Graph", () => {
 
   test("Returns the children of a node", () => {
     let graph = Graph.make(~compound=true, ());
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "a",
       Node.attrs(~width=20, ~height=20, ~label="first", ()),
     );
-    Graph.setNode(
+    Graph.setNodeWith(
       graph,
       "b",
       Node.attrs(~width=20, ~height=20, ~label="second", ()),

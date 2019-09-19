@@ -636,6 +636,11 @@ bs-platform@6:
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-6.1.0.tgz#dc4cbde176222b887eb140528c8f9f885a3cc0fa"
   integrity sha512-4EFTVU75qznEOkFEsZ+BF1U57j7N0qO0mNsva0OSwnxJpae4SBPq8r3Sf8mlzBKYXmdyCFXYL9Q/eTUj0ExaFg==
 
+bsdoc@6.0.0-alpha:
+  version "6.0.0-alpha"
+  resolved "https://registry.yarnpkg.com/bsdoc/-/bsdoc-6.0.0-alpha.tgz#fc8815f8c3f0b78abeae78a5b62b6f988ff81896"
+  integrity sha512-kgNZ5qpQ5gSGaTVGibEGelKUyiLGGLFEMhCYrMRs+gBIKOy680wKEP9ztu1cGqP7wo7O4En7rcdLcM0j1eNz4A==
+
 bser@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/bser/-/bser-2.1.0.tgz#65fc784bf7f87c009b973c12db6546902fa9c7b5"

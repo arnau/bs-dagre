@@ -9,7 +9,7 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "test": "yarn build && jest --coverage",
+    "test": "$npm_execpath build && jest --coverage",
     "format": "bsrefmt"
   },
   "repository": {

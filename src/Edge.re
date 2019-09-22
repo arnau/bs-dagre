@@ -12,6 +12,15 @@ type point = {
   y: int,
 };
 
+let pointToString =
+    (p: point, ~correction: option((int, int))=?, ()): string => {
+  let (cx, cy) = Belt.Option.getWithDefault(correction, (0, 0));
+  let x = xGet(p) + cx;
+  let y = yGet(p) + cy;
+
+  string_of_int(x) ++ ", " ++ string_of_int(y);
+};
+
 [@bs.deriving abstract]
 type attrs = {
   [@bs.optional]

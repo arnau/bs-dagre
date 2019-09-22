@@ -1,5 +1,5 @@
 {
-  "name": "bs-dagre",
+  "name": "@arnau/bs-dagre",
   "version": "0.1.0",
   "main": "index.js",
   "author": "Arnau Siches <asiches@gmail.com>",
@@ -26,7 +26,9 @@
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.9",
     "bs-platform": "6",
-    "bsdoc": "6.0.0-alpha"
+    "bsdoc": "6.0.0-alpha",
+    "react": "^16.9.0",
+    "reason-react": "^0.7.0"
   },
   "dependencies": {
     "dagre": "^0.8.4"

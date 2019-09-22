@@ -1,5 +1,6 @@
 open Jest;
 open Expect;
+open Dagre;
 
 describe("Graph", () => {
   test("configure graph with default attributes", () => {

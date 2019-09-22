@@ -1,6 +1,6 @@
 open Jest;
 open Expect;
-open Acyclicer;
+open Dagre.Acyclicer;
 
 describe("Acyclicer", () => {
   test("greedy", () =>

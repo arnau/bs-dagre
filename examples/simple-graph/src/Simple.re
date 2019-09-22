@@ -1,4 +1,4 @@
-open BsDagre;
+open Dagre;
 
 type state = Graph.t;
 

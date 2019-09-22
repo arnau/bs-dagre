@@ -1,3 +1,6 @@
+module Graph = Dagre_graph;
+module Node = Dagre_node;
+
 type t = {
   graph: Graph.t,
   width: int,

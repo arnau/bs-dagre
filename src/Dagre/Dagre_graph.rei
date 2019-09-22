@@ -5,15 +5,15 @@ type t;
 
 module Attrs: {
   type t = {
-    rankdir: Rank.Dir.t,
-    align: Rank.Align.t,
+    rankdir: Dagre_rank.Dir.t,
+    align: Dagre_rank.Align.t,
     nodesep: int,
     edgesep: int,
     ranksep: int,
     marginx: int,
     marginy: int,
-    acyclicer: Acyclicer.t,
-    ranker: Rank.Strategy.t,
+    acyclicer: Dagre_acyclicer.t,
+    ranker: Dagre_rank.Strategy.t,
   };
 
   /**
@@ -23,15 +23,15 @@ module Attrs: {
    */
   let make:
     (
-      ~rankdir: Rank.Dir.t=?,
-      ~align: Rank.Align.t=?,
+      ~rankdir: Dagre_rank.Dir.t=?,
+      ~align: Dagre_rank.Align.t=?,
       ~nodesep: int=?,
       ~edgesep: int=?,
       ~ranksep: int=?,
       ~marginx: int=?,
       ~marginy: int=?,
-      ~acyclicer: Acyclicer.t=?,
-      ~ranker: Rank.Strategy.t=?,
+      ~acyclicer: Dagre_acyclicer.t=?,
+      ~ranker: Dagre_rank.Strategy.t=?,
       unit
     ) =>
     t;
@@ -105,8 +105,8 @@ external graph: t => Js.t('a) = "graph";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#setNode
  */
 [@bs.send]
-external setNodeWith: (t, Node.t, Node.attrs) => unit = "setNode";
-[@bs.send] external setNode: (t, Node.t) => unit = "setNode";
+external setNodeWith: (t, Dagre_node.t, Dagre_node.attrs) => unit = "setNode";
+[@bs.send] external setNode: (t, Dagre_node.t) => unit = "setNode";
 
 /**
   Returns the attributes for the given node. Returns [None] when the node
@@ -123,7 +123,7 @@ external setNodeWith: (t, Node.t, Node.attrs) => unit = "setNode";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#node
  */
 [@bs.send] [@bs.return nullable]
-external node: (t, Node.t) => option(Node.attrs) = "node";
+external node: (t, Dagre_node.t) => option(Dagre_node.attrs) = "node";
 
 /**
   Checks if the graph is directed.
@@ -200,7 +200,7 @@ external setDefaultEdgeAttrs: (t, unit => Js.t('a)) => unit =
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#nodes
  */
 [@bs.send]
-external nodes: t => array(Node.t) = "nodes";
+external nodes: t => array(Dagre_node.t) = "nodes";
 
 /**
   Returns the edges in the graph. Use [Graph.edge] to get the edge
@@ -209,7 +209,7 @@ external nodes: t => array(Node.t) = "nodes";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#edges
  */
 [@bs.send]
-external edges: t => array(Edge.t) = "edges";
+external edges: t => array(Dagre_edge.t) = "edges";
 
 /**
   Returns the source nodes in the graph (i.e. nodes with no incoming edges).
@@ -217,7 +217,7 @@ external edges: t => array(Edge.t) = "edges";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#sources
  */
 [@bs.send]
-external sources: t => array(Node.t) = "sources";
+external sources: t => array(Dagre_node.t) = "sources";
 
 /**
   Returns the sink nodes in the graph (i.e. nodes with no outgoing edges).
@@ -225,7 +225,7 @@ external sources: t => array(Node.t) = "sources";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#sinks
  */
 [@bs.send]
-external sinks: t => array(Node.t) = "sinks";
+external sinks: t => array(Dagre_node.t) = "sinks";
 
 /**
   Checks if the node exists in the graph.
@@ -233,7 +233,7 @@ external sinks: t => array(Node.t) = "sinks";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#hasNode
  */
 [@bs.send]
-external hasNode: (t, Node.t) => bool = "hasNode";
+external hasNode: (t, Dagre_node.t) => bool = "hasNode";
 
 /**
   Removes the given node, its attributes, and incident edges. Does nothing
@@ -242,7 +242,7 @@ external hasNode: (t, Node.t) => bool = "hasNode";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#removeNode
  */
 [@bs.send]
-external removeNode: (t, Node.t) => unit = "removeNode";
+external removeNode: (t, Dagre_node.t) => unit = "removeNode";
 
 /**
   Returns the predecessor nodes for the given node. Returns [None] if the
@@ -254,7 +254,8 @@ external removeNode: (t, Node.t) => unit = "removeNode";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#predecessors
  */
 [@bs.send] [@bs.return nullable]
-external predecessors: (t, Node.t) => option(array(Node.t)) = "predecessors";
+external predecessors: (t, Dagre_node.t) => option(array(Dagre_node.t)) =
+  "predecessors";
 
 /**
   Returns the successor nodes for the given node. Returns [None] if the
@@ -266,7 +267,8 @@ external predecessors: (t, Node.t) => option(array(Node.t)) = "predecessors";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#successors
  */
 [@bs.send] [@bs.return nullable]
-external successors: (t, Node.t) => option(array(Node.t)) = "successors";
+external successors: (t, Dagre_node.t) => option(array(Dagre_node.t)) =
+  "successors";
 
 /**
   Returns the nodes connected to the given node. Returns [None] if the
@@ -275,7 +277,8 @@ external successors: (t, Node.t) => option(array(Node.t)) = "successors";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#successors
  */
 [@bs.send] [@bs.return nullable]
-external neighbors: (t, Node.t) => option(array(Node.t)) = "neighbors";
+external neighbors: (t, Dagre_node.t) => option(array(Dagre_node.t)) =
+  "neighbors";
 
 /**
   Returns the incoming edges for the given node. When [filter] is provided,
@@ -286,7 +289,8 @@ external neighbors: (t, Node.t) => option(array(Node.t)) = "neighbors";
  */
 [@bs.send] [@bs.return nullable]
 external inEdges:
-  (t, Node.t, ~filter: Node.t=?, unit) => option(array(Edge.t)) =
+  (t, Dagre_node.t, ~filter: Dagre_node.t=?, unit) =>
+  option(array(Dagre_edge.t)) =
   "inEdges";
 
 /**
@@ -298,7 +302,8 @@ external inEdges:
  */
 [@bs.send] [@bs.return nullable]
 external outEdges:
-  (t, Node.t, ~filter: Node.t=?, unit) => option(array(Edge.t)) =
+  (t, Dagre_node.t, ~filter: Dagre_node.t=?, unit) =>
+  option(array(Dagre_edge.t)) =
   "outEdges";
 
 /**
@@ -310,7 +315,8 @@ external outEdges:
  */
 [@bs.send] [@bs.return nullable]
 external nodeEdges:
-  (t, Node.t, ~filter: Node.t=?, unit) => option(array(Edge.t)) =
+  (t, Dagre_node.t, ~filter: Dagre_node.t=?, unit) =>
+  option(array(Dagre_edge.t)) =
   "nodeEdges";
 
 /**
@@ -323,7 +329,7 @@ external nodeEdges:
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#parent
  */
 [@bs.send] [@bs.return nullable]
-external parent: (t, Node.t) => option(Node.t) = "parent";
+external parent: (t, Dagre_node.t) => option(Dagre_node.t) = "parent";
 
 /**
   Sets the parent for the given node.
@@ -333,7 +339,7 @@ external parent: (t, Node.t) => option(Node.t) = "parent";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#setParent
  */
 [@bs.send]
-external setParent: (t, Node.t, Node.t) => unit = "setParent";
+external setParent: (t, Dagre_node.t, Dagre_node.t) => unit = "setParent";
 
 /**
   Removes the parent for the given node.
@@ -344,7 +350,7 @@ external setParent: (t, Node.t, Node.t) => unit = "setParent";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#setParent
  */
 [@bs.send]
-external removeParent: (t, Node.t) => unit = "setParent";
+external removeParent: (t, Dagre_node.t) => unit = "setParent";
 
 /**
   Returns the children nodes for the given node. Returns [None] if the node
@@ -359,7 +365,8 @@ external removeParent: (t, Node.t) => unit = "setParent";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#children
  */
 [@bs.send] [@bs.return nullable]
-external childrenRaw: (t, Node.t) => option(array(Node.t)) = "children";
+external childrenRaw: (t, Dagre_node.t) => option(array(Dagre_node.t)) =
+  "children";
 
 /**
   Returns the children for the given node. When the graph is not compound,
@@ -367,7 +374,7 @@ external childrenRaw: (t, Node.t) => option(array(Node.t)) = "children";
 
   Use [Graph.childrenRaw] if you need the original behaviour.
  */
-let children: (t, Node.t) => option(array(Node.t));
+let children: (t, Dagre_node.t) => option(array(Dagre_node.t));
 
 /**
   Checks if the given edge exists.
@@ -375,7 +382,7 @@ let children: (t, Node.t) => option(array(Node.t));
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#hasEdge
  */
 [@bs.send]
-external hasEdge: (t, Edge.t) => bool = "hasEdge";
+external hasEdge: (t, Dagre_edge.t) => bool = "hasEdge";
 
 /**
   Adds an edge with its layout attributes to the graph.
@@ -388,8 +395,8 @@ external hasEdge: (t, Edge.t) => bool = "hasEdge";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#setEdge
  */
 [@bs.send]
-external setEdgeWith: (t, Edge.t, Edge.attrs) => unit = "setEdge";
-[@bs.send] external setEdge: (t, Edge.t) => unit = "setEdge";
+external setEdgeWith: (t, Dagre_edge.t, Dagre_edge.attrs) => unit = "setEdge";
+[@bs.send] external setEdge: (t, Dagre_edge.t) => unit = "setEdge";
 
 /**
   Returns the layout attributes for the given edge. Returns [None] if the
@@ -398,7 +405,7 @@ external setEdgeWith: (t, Edge.t, Edge.attrs) => unit = "setEdge";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#edge
  */
 [@bs.send] [@bs.return nullable]
-external edge: (t, Edge.t) => option(Edge.attrs) = "edge";
+external edge: (t, Dagre_edge.t) => option(Dagre_edge.attrs) = "edge";
 
 /**
   Removes the given edge from the graph.
@@ -406,7 +413,7 @@ external edge: (t, Edge.t) => option(Edge.attrs) = "edge";
   See: https://github.com/dagrejs/graphlib/wiki/API-Reference#removeEdge
  */
 [@bs.send]
-external removeEdge: (t, Edge.t) => unit = "removeEdge";
+external removeEdge: (t, Dagre_edge.t) => unit = "removeEdge";
 
 /**
   Returns a filtered copy of the graph. The filter is based on the node
@@ -434,7 +441,7 @@ let setAttrs: (t, Attrs.t) => unit;
   non-compound non-labelled graph.
 
   {[
-    let attrs = Graph.Attrs.make(~rankdir=Rank.Dir.LeftRight, ());
+    let attrs = Graph.Attrs.make(~rankdir=Dagre_rank.Dir.LeftRight, ());
     let graph = Graph.make(~attrs, ());
 
     Graph.isDirected(graph) == true;

@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@arnau/bs-dagre@file:../..":
+  version "0.2.1"
+  dependencies:
+    dagre "^0.8.4"
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -530,11 +535,6 @@ browserify-zlib@^0.2.0:
   integrity sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==
   dependencies:
     pako "~1.0.5"
-
-"bs-dagre@file:../..":
-  version "0.1.0"
-  dependencies:
-    dagre "^0.8.4"
 
 bs-platform@^5.0.6:
   version "5.0.6"

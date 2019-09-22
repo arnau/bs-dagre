@@ -14,9 +14,9 @@
 Although most names come straight from the original library, there are a few
 changes to adapt to Reason and a few aliases for my own benefit.
 
-* Bindings for `graphlib` ara under the [`BsDagre.Graph`](src/Graph.rei)
+* Bindings for `graphlib` ara under the [`Dagre.Graph`](src/Graph.rei)
   module.
-* Bindings for `dagre` are under the [`BsDagre.Layout`](src/Layout.re) module.
+* Bindings for `dagre` are under the [`Dagre.Layout`](src/Layout.re) module.
 * `graphlib` uses "label" to refer to data associated with graph, nodes and
   edges. `bs-dagre` uses "attributes" instead. For example, instead of
   `setDefaultNodeLabel` you have `setDefaultNodeAttrs`.
@@ -30,7 +30,7 @@ and finally create a layout.
 ### Crate a graph
 
 ```reason
-open BsDagre;
+open Dagre;
 
 let graph = Graph.make();
 Graph.setDefaultEdgeAttrs(graph, () => {"minlen": 2});

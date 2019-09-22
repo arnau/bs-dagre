@@ -1,5 +1,6 @@
 open Jest;
 open Expect;
+open Dagre;
 
 describe("Layout", () => {
   test("empty graph has no size", () => {

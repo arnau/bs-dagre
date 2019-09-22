@@ -18,6 +18,6 @@
   "warnings": {
     "error" : "+101"
   },
-  "namespace": false,
+  "namespace": "dagre",
   "refmt": 3
 }

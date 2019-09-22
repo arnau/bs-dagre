@@ -1,8 +1,3 @@
-module Rank = Dagre_rank;
-module Acyclicer = Dagre_acyclicer;
-module Node = Dagre_node;
-module Edge = Dagre_edge;
-
 type t;
 
 module Attrs = {

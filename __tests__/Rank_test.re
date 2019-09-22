@@ -1,6 +1,6 @@
 open Jest;
 open Expect;
-open Dagre.Rank;
+open Rank;
 
 describe("Rank", () => {
   describe("Dir", () => {

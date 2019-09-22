@@ -1,6 +1,6 @@
 {
   "name": "@arnau/bs-dagre",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "bsc-flags": ["-bs-super-errors"],
   "sources": [{
     "dir" : "src",

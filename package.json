@@ -1,7 +1,6 @@
 {
   "name": "@arnau/bs-dagre",
-  "version": "0.3.0",
-  "main": "index.js",
+  "version": "0.3.1",
   "author": "Arnau Siches <asiches@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -12,6 +11,10 @@
     "test": "$npm_execpath build && jest --coverage",
     "format": "bsrefmt"
   },
+  "files": [
+    "src/",
+    "bsconfig.json"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arnau/bs-dagre.git"

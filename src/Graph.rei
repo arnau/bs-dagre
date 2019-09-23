@@ -418,6 +418,22 @@ external removeEdge: (t, Edge.t) => unit = "removeEdge";
 external filterNodes: (t, Js.t('a) => bool) => t = "filterNodes";
 
 /**
+  Serializes the given graph to a dictionary-like data structure.
+
+  See: https://github.com/dagrejs/graphlib/wiki/API-Reference#json-write
+  */
+[@bs.val] [@bs.module "dagre"] [@bs.scope ("graphlib", "json")]
+external serialize: t => Js.t('a) = "write";
+
+/**
+  Deserializes the given dictionary-like data structure into a [Graph.t].
+
+  See: https://github.com/dagrejs/graphlib/wiki/API-Reference#json-read
+  */
+[@bs.val] [@bs.module "dagre"] [@bs.scope ("graphlib", "json")]
+external deserialize: Js.t('a) => t = "read";
+
+/**
   Returns the graph attributes. This is a less confusing name than the
   original [Graph.graph].
  */

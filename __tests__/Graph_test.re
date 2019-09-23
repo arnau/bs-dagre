@@ -376,4 +376,108 @@ describe("Graph", () => {
 
     expect(Graph.attrs(h)) |> toEqual(Graph.attrs(g));
   });
+
+  test("Serializes a graph", () => {
+    let g = Graph.make();
+
+    Graph.setNodeWith(
+      g,
+      "a",
+      Node.attrs(~label="node a", ~width=10, ~height=10, ()),
+    );
+    Graph.setNodeWith(
+      g,
+      "b",
+      Node.attrs(~label="node b", ~width=10, ~height=10, ()),
+    );
+    Graph.setEdgeWith(
+      g,
+      Edge.t(~v="a", ~w="b", ()),
+      Edge.attrs(~weight=2, ()),
+    );
+
+    let actual = Graph.serialize(g);
+    let expected = [%raw
+      {|
+    {
+      "options": {
+        "directed": true,
+        "multigraph": false,
+        "compound": false
+      },
+      "value": {
+        "acyclicer": undefined,
+        "align": "UL",
+        "edgesep": 10,
+        "marginx": 0,
+        "marginy": 0,
+        "nodesep": 50,
+        "rankdir": "TB",
+        "ranker": "network-simplex",
+        "ranksep": 50,
+      },
+      "nodes": [
+        { "v": "a", "value": { "label": "node a", "height": 10, "width": 10 } },
+        { "v": "b", "value": { "label": "node b", "height": 10, "width": 10 } }
+      ],
+      "edges": [
+        { "v": "a", "w": "b", "value": { "weight": 2 } }
+      ]
+    }
+    |}
+    ];
+
+    expect(actual) |> toEqual(expected);
+  });
+
+  test("Deserialize a graph", () => {
+    let g = Graph.make();
+
+    Graph.setNodeWith(
+      g,
+      "a",
+      Node.attrs(~label="node a", ~width=10, ~height=10, ()),
+    );
+    Graph.setNodeWith(
+      g,
+      "b",
+      Node.attrs(~label="node b", ~width=10, ~height=10, ()),
+    );
+    Graph.setEdgeWith(
+      g,
+      Edge.t(~v="a", ~w="b", ()),
+      Edge.attrs(~weight=2, ()),
+    );
+
+    let raw = [%raw
+      {| {
+      "options": {
+        "directed": true,
+        "multigraph": false,
+        "compound": false
+      },
+      "value": {
+        "acyclicer": undefined,
+        "align": "UL",
+        "edgesep": 10,
+        "marginx": 0,
+        "marginy": 0,
+        "nodesep": 50,
+        "rankdir": "TB",
+        "ranker": "network-simplex",
+        "ranksep": 50,
+      },
+      "nodes": [
+        { "v": "a", "value": { "label": "node a", "height": 10, "width": 10 } },
+        { "v": "b", "value": { "label": "node b", "height": 10, "width": 10 } }
+      ],
+      "edges": [
+        { "v": "a", "w": "b", "value": { "weight": 2 } }
+      ]
+    } |}
+    ];
+    let actual = Graph.deserialize(raw)->Graph.serialize;
+
+    expect(actual) |> toEqual(raw);
+  });
 });

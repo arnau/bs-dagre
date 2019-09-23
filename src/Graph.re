@@ -145,6 +145,12 @@ external edge: (t, Edge.t) => option(Edge.attrs) = "edge";
 
 [@bs.send] external filterNodes: (t, Js.t('a) => bool) => t = "filterNodes";
 
+[@bs.val] [@bs.module "dagre"] [@bs.scope ("graphlib", "json")]
+external serialize: t => Js.t('a) = "write";
+
+[@bs.val] [@bs.module "dagre"] [@bs.scope ("graphlib", "json")]
+external deserialize: Js.t('a) => t = "read";
+
 let attrs = (g: t): Attrs.t => {
   let obj = graph(g);
 

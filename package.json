@@ -28,10 +28,7 @@
   ],
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.9",
-    "bs-platform": "6",
-    "bsdoc": "6.0.0-alpha",
-    "react": "^16.9.0",
-    "reason-react": "^0.7.0"
+    "bs-platform": "6"
   },
   "dependencies": {
     "dagre": "^0.8.4"

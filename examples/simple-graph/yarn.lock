@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@arnau/bs-dagre@0.4.0":
+"@arnau/bs-dagre@0.4.1":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@arnau/bs-dagre/-/bs-dagre-0.4.0.tgz#810cc24229834ac709eb19cbcb81b93078f242cc"
   integrity sha512-iVj0xGoxBk5l7C5iAMyXwlPQBHgI3Eq2i/8tUyihKbtgo2X9uOyDH2W6qO3ozbDxFUTbNIHe5IG4SvIhE4VJyg==

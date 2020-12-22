@@ -1,6 +1,6 @@
 {
   "name": "@arnau/bs-dagre",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "Arnau Siches <asiches@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -27,8 +27,8 @@
     "layout"
   ],
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.5.1",
-    "bs-platform": "8"
+    "@glennsl/bs-jest": "^0.6.0",
+    "bs-platform": "8.4.2"
   },
   "dependencies": {
     "dagre": "^0.8.4"

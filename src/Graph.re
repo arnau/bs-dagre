@@ -24,7 +24,7 @@ module Attrs = {
         ~marginy: int=0,
         ~acyclicer: Acyclicer.t=Lazy,
         ~ranker: Rank.Strategy.t=NetworkSimplex,
-        unit,
+        (),
       )
       : t => {
     rankdir,
@@ -177,7 +177,7 @@ let make =
       ~compound: bool=false,
       ~multigraph: bool=false,
       ~attrs: Attrs.t=Attrs.make(),
-      unit,
+      (),
     )
     : t => {
   let g = makeWith(config(~directed, ~compound, ~multigraph));

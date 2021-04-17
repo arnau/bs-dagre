@@ -14,7 +14,6 @@ describe("Acyclicer", () => {
   test("other", () =>
     expect(() =>
       fromStringExn(Some("foo"))
-    )
-    |> toThrowException(UnexpectedAcyclicer("foo"))
+    ) |> toThrow
   );
 });

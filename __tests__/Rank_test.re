@@ -17,8 +17,7 @@ describe("Rank", () => {
     test("unknown", () =>
       expect(() =>
         Dir.fromStringExn("TT")
-      )
-      |> toThrowException(Dir.UnexpectedDir("TT"))
+      ) |> toThrow
     );
   });
 
@@ -41,8 +40,7 @@ describe("Rank", () => {
     test("unknown", () =>
       expect(() =>
         Align.fromStringExn("TT")
-      )
-      |> toThrowException(Align.UnexpectedAlign("TT"))
+      ) |> toThrow
     );
   });
 
@@ -63,8 +61,7 @@ describe("Rank", () => {
     test("unknown", () =>
       expect(() =>
         Strategy.fromStringExn("TT")
-      )
-      |> toThrowException(Strategy.UnexpectedStrategy("TT"))
+      ) |> toThrow
     );
   });
 });
